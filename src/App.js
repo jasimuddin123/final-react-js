@@ -3,20 +3,38 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const nayoks =['Jasim', 'Zahid Iqbal', 'Bapparaz', 'Sonabondu']
+  
+  const nayoks =['Jasim','Alamgir', 'Rubel','Abdur Razzak', 'Sagar', 'Halka Khan','Sonabondu','Kalabondu']
   const products =[
-    {name:'Photoshop', price:'$299.59'},
-    {name:'Illustrator', price:'$199.50'},
-    {name:'Adobe', price:'$100.20'}
-
+    
+    {name:'Phootoshop', price:'$200.50'},
+    {name:'Illustrator', price:'$100.30'},
+    {name:'Adove', price:'$20.22'},
+    {name:'Premimum', price:'$150.20'}
+  
   ]
   return (
     <div className="App">
       <header className="App-header">
         <p> I am react Person </p>
+        
+        <ul>
+          {
+            nayoks.map(nayok =><li>{nayok}</li>)
+          }
+          {
+            products.map(product =><li>{product.name}</li>)
+          }
 
-      <Product product={products[0]}></Product>
-      <Product product={products[1]}></Product>
+          {
+            products.map(pd=><Product product={pd}></Product>)
+          }
+  
+        </ul>
+
+  
+ 
+     
      
 
      
@@ -43,11 +61,11 @@ function Product (props){
     width:'100px',
     fontWeight:'bold'
   }
-  const {name, price} = props.product;
+const {name, price} = props.product;
   return(
     <div style={productStyle}>
-      <h3>Name:{name}</h3>
-      <h3>Price: {price} </h3>
+      <h3>Name: {name}</h3>
+      <h3>Price:{price} </h3>
       <button style={btnStyle}>Buy Now</button>
     </div>
   )
